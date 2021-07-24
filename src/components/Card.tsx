@@ -1,23 +1,64 @@
 import { FC, memo } from "react";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
-interface Props {}
 
-const Card: FC<Props> = (props) => {
+interface Props {
+  key: number;
+  name: string;
+  price: string;
+  symbol: string;
+  marketcap: string;
+  volume: string;
+  image: string;
+  priceChange: number;
+}
+
+const Card: FC<Props> = ({
+  name,
+  price,
+  symbol,
+  marketcap,
+  volume,
+  image,
+  priceChange,
+}) => {
   return (
-    <div className=" text-center mx-5 my-2 p-4 rounded-b-3xl border-b border-l border-r border-black ">
-      <div className=" w-10 h-10 mx-auto ">
-        <img
-          src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
-          alt=""
-        />
+    <div className=" text-center drop-shadow-2xl shadow-xl mx-4 my-4 rounded-b-3xl border-b border-l border-r box-border border-black bg-white bg-opacity-0 ">
+      <div className=" px-8 pb-2 text-sm">
+        <div className="  mx-auto ">
+          <img className="w-10 h-10 mx-auto  hover:rotate-12 transform " src={image} alt={name} />
+        </div>
+        <div className="justify-center items-center space-x-2 flex text-lg">
+          <h1 className=" text-gray-200 text-xl font-bold ">{name}</h1>
+          <p className=" text-gray-300 text-xs ">{symbol.toUpperCase()}</p>
+        </div>
+        <p className="text-gray-200 ">${price.toLocaleString()}</p>
+        <p className="text-gray-200">
+          Market Cap : ${marketcap.toLocaleString()}
+        </p>
+        <p className="text-gray-200">
+          Volume (24H) : ${volume.toLocaleString()}
+        </p>
       </div>
-      <div className="font-medium text-lg">
-        <h1 className=" text-gray-200 ">Bitcoin</h1>
-        <p className=" text-green-500 ">BTC</p>
-      </div>
-      <p className="text-gray-200">$60K</p>
-      <p className="text-gray-200">Market Cap : $142,131,123,123</p>
-      <p className="text-gray-200">Volume (24H): $142,131,123,123</p>
+      {priceChange > 0 ? (
+        <div
+          className=" flex items-center rounded-b-2xl 
+        justify-center w-full text-black h-10"
+          style={{ backgroundColor: "#39FF14" }}
+        >
+          <IoIosArrowUp className=" text-lg mr-2  " />
+          <p>{priceChange.toFixed(3)}%</p>
+        </div>
+      ) : (
+        <div
+          className=" h-10 flex items-center rounded-b-2xl 
+        justify-center w-full text-white "
+          style={{ backgroundColor: "#FF0800" }}
+        >
+          <IoIosArrowDown className=" text-lg mr-2  " />
+          <p>{priceChange.toFixed(3)}%</p>
+        </div>
+      )}
     </div>
   );
 };
