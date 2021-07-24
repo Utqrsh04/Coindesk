@@ -61,10 +61,7 @@ const Dashboard: FC<Props> = (props) => {
           );
         })}
       </div>
-      <footer className=" bg-gray-500 flex items-center justify-center h-10 ">
-     <a href="https://github.com/Utqrsh04/CryptoDesk" target="_blank" rel="noreferrer" className=" font-bold text-black hover:text-gray-900">Github Repo</a>
-      </footer>
-
+      
     </div>
   );
 };
