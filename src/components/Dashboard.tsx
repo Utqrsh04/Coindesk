@@ -1,6 +1,5 @@
 import axios from "axios";
 import { FC, memo, useEffect, useState } from "react";
-import { IoLogoStencil , IoSearch } from "react-icons/io5";
 import { BiStats } from "react-icons/bi";
 import Card from "./Card";
 
@@ -38,11 +37,10 @@ const Dashboard: FC<Props> = (props) => {
           <h1 className=" text-2xl font-semibold">Cryptodesk</h1>
         </div>
         <div className="w-auto flex rounded-lg items-center sm:mx-10 ">
-        {/* <IoSearch className=" w-5 h-5 "/> */}
           <input
             
             onChange={handleChange}
-            placeholder="Coin"
+            placeholder="Search Coin"
             className=" rounded-lg w-32  h-8 p-5 "
           />
         </div>
@@ -64,7 +62,7 @@ const Dashboard: FC<Props> = (props) => {
         })}
       </div>
       <footer className=" bg-gray-500 flex items-center justify-center h-10 ">
-     <a href="" className=" font-bold text-black hover:text-gray-900">Github Link</a>
+     <a href="https://github.com/Utqrsh04/CryptoDesk" target="_blank" className=" font-bold text-black hover:text-gray-900">Github Repo</a>
       </footer>
 
     </div>
