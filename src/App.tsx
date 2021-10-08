@@ -1,11 +1,13 @@
-import React from 'react';
-import Dashboard from './components/Dashboard';
+import { BrowserRouter } from "react-router-dom";
+import Landing from "./components/Landing";
 
 function App() {
   return (
-    <div className="App bg-gray-900 bg-opacity-95">
-      <Dashboard/>
-    </div>
+    <BrowserRouter>
+      <div className="App bg-black  bg-opacity-95">
+        <Landing />
+      </div>
+    </BrowserRouter>
   );
 }
 
